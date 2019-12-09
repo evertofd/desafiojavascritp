@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <h1 id="titulo"> ¡¡¡ La bomba !!! </h1>
+  <h2 id="timer">15</h2>
+  <script>
+
+  var titulo_n = document.getElementById('titulo');
+  var timer_tag = document.getElementById('timer');
+  var timer = timer_tag.innerHTML;
+
+
+setInterval(function(){
+    timer = timer - 1
+    clearInterval(timer == 0);
+    timer_tag.innerHTML = timer;
+    if(timer == 0){
+      titulo_n.innerHTML = ('¡¡¡BOMMM!!');
+      document.body.style.backgroundColor = "red";
+    }
+
+  }, 1000);
+</script>
+
+</body>
+</html>

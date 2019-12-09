@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <input type="text" id ="calculator" name="calculator" value="">
+  <br>
+  <button class="btn" type="button" id="uno" onclick="uno()" name="button">1</button>
+  <button class="btn" type="button"  id="dos" onclick="dos()" name="button">2</button>
+  <button class="btn" type="button"  id="tres" onclick="tres()" name="button">3</button>
+  <button class="btn" type="button"  id="cuatro" onclick="cuatro()" name="button">4</button>
+  <button class="btn" type="button"  id="cinco" onclick="cinco()" name="button">5</button>
+  <button class="btn" type="button" id="seis"  onclick="seis()" name="button">6</button>
+  <button class="btn" type="button"  id="siete" onclick="siete()" name="button">7</button>
+  <button class="btn" type="button"  id="ocho" onclick="ocho()" name="button">8</button>
+  <button class="btn" type="button" id="nueve"  onclick="nueve()" name="button">9</button>
+  <br>
+  <button class="btn clear" type="button" name="button" onClick="limpiar()">clear</button>
+  <button class="btn" type="button" id="suma"  name="button" onclick="suma()">+</button>
+  <button class="btn" type="button" id="resta"  name="button" onclick="resta()" >-</button>
+  <button class="btn" type="button" id="multiplicacion"  name="button"  onclick="multiplicacion()" >X</button>
+  <button class="btn" type="button" id="division"  name="button"  onclick="division()" >/</button>
+  <br>
+  <button class="result" type="button" name="result" onclick="calcTotal()">=
+  </button>
+  <script type="text/javascript">
+
+
+  var operadorA;
+  var operadorB;
+  var operar;
+  var result = document.getElementsByName("result")[0];
+  var calculator = document.getElementsByName("calculator")[0];
+  var calcTotal = function(){
+    calculator.value = eval(calculator.value);
+  }
+  var uno = function(){
+    calculator.value = calculator.value + "1";
+  }
+
+  var dos = function(){
+    calculator.value = calculator.value + "2";
+  }
+
+  var tres = function(){
+    calculator.value = calculator.value + "3";
+  }
+
+  var cuatro = function(){
+    calculator.value = calculator.value + "4";
+  }
+
+  var cinco = function(){
+    calculator.value = calculator.value + "5";
+  }
+
+  var seis = function(){
+    calculator.value = calculator.value + "6";
+  }
+
+  var siete = function(){
+    calculator.value = calculator.value + "7";
+  }
+
+  var ocho = function(){
+    calculator.value = calculator.value + "8";
+  }
+  var nueve = function(){
+    calculator.value = calculator.value + "9";
+  }
+
+  var suma = function(){
+    calculator.value = calculator.value + "+";
+  }
+
+  var resta = function(){
+    calculator.value = calculator.value + "-";
+  }
+
+  var division = function(){
+    calculator.value = calculator.value + "/";
+  }
+
+  var multiplicacion = function(){
+    calculator.value = calculator.value + "*";
+  }
+
+  function limpiar(){
+    document.getElementById("calculator").value="";
+  }
+
+  </script>
+</body>
+</html>
