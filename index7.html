@@ -10,77 +10,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>JS Basics</title>
     <style>
-      .todo{
-        float: left;
-        cursor: pointer;
-      }
-      .done{
-        float: left;
-        margin-left: 100px;
-      }
+    .todo{
+      float: left;
+      cursor: pointer;
+    }
+    .done{
+      float: left;
+      margin-left: 100px;
+    }
     </style>
   </head>
   <body>
-    <ol class="todo" id="todo">
-      <h3>To Do:</h3>
-    </ol>
-    <ol class="done" id="done">
-      <h3>Done:</h3>
-    </ol>
+
+    <h3>To Do:</h3>
+    <ul id="incomplete-tasks">
+    </ul>
+
+
+    <h3>Done:</h3>
+    <ul id="completed-tasks">
+    </ul>
 
     <script>
-      var asdf = [{
-        "completed":false,
-        "id":1,
-        "title":"Delectus aut autem",
-      },
-      {
-        "completed":false,
-        "id":2,
-        "title":"Quis ut nam facilis et officia qui",
-      },
-      {
-        "completed":false,
-        "id":3,
-        "title":"Fugiat veniam minus",
-      },
-      {
-        "completed":true,
-        "id":4,
-        "title":"Et porro tempora",
-      },
-      {
-        "completed":false,
-        "id":5,
-        "title":"Laboriosam mollitia et enim quasi adipisci quia provident
-        illum",
-      },
-      {
-        "completed":false,
-        "id":6,
-        "title":"Qui ullam ratione quibusdam voluptatem quia omnis",
-      },
-      {
-        "completed":false,
-        "id":7,
-        "title":"Illo expedita consequatur quia in",
-        "userId":1
-      },
-      {
-        "completed":true,
-        "id":8,
-        "title":"Quo adipisci enim quam ut ab",
-      },
-      {
-        "completed":false,
-        "id":9,
-        "title":"Molestiae perspiciatis ipsa",
-      },
-      {
-        "completed":true,
-        "id":10,
-        "title":"Illo est ratione doloremque quia maiores aut",
-      }];
+
+  var createlists = function(){
+    for ( var i = 0; i < asdf.length; i++){
+      var item = document.createElement('li');
+      item.setAttribute("id", asdf[i].id);
+      var contenido = document.createTextNode(asdf[i].title);
+      item.appendChild(contenido);
+      if (asdf[i].completed == false){
+        item.setAttribute("onClick", "completeTask(this)");
+        var list = document.getElementById('incomplete-tasks');
+        list.appendChild(item);
+      }else{
+        var list = document.getElementById('completed-tasks');
+        list.appendChild(item);
+      }
+    };
+  }
+
+    var completeTask = function(element){
+      console.log(element.id);
+      for ( var i = 0; i < asdf.length; i++ ){
+        if (asdf[i].id == element.id){
+          asdf[i].completed = true;
+        var incomplete = document.getElementById('incomplete-tasks').innerHTML = " ";
+        var completed = document.getElementById('completed-tasks').innerHTML = " ";
+          createlists();
+
+        }
+      }
+
+    }
+
+    var asdf = [{
+      "completed":false,
+      "id":1,
+      "title":"Delectus aut autem",
+    },
+    {
+      "completed":false,
+      "id":2,
+      "title":"Quis ut nam facilis et officia qui",
+    },
+    {
+      "completed":false,
+      "id":3,
+      "title":"Fugiat veniam minus",
+    },
+    {
+      "completed":false,
+      "id":4,
+      "title":"Et porro tempora",
+    },
+    {
+      "completed":false,
+      "id":5,
+      "title":"Laboriosam mollitia et enim quasi adipisci quia provident illum",
+    },
+    {
+      "completed":false,
+      "id":6,
+      "title":"Qui ullam ratione quibusdam voluptatem quia omnis",
+    },
+    {
+      "completed":false,
+      "id":7,
+      "title":"Illo expedita consequatur quia in",
+    },
+    {
+      "completed":true,
+      "id":8,
+      "title":"Quo adipisci enim quam ut ab",
+    },
+    {
+      "completed":false,
+      "id":9,
+      "title":"Molestiae perspiciatis ipsa",
+    },
+    {
+      "completed":true,
+      "id":10,
+      "title":"Illo est ratione doloremque quia maiores aut",
+    }];
+
+createlists();
+
+
     </script>
   </body>
   </html>
